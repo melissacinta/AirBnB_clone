@@ -1,6 +1,7 @@
 # AirBnB_clone
 
-![ALX AFRICA AirBnB Clone](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231206T041631Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=89f1c392837184bf3831ded7a361ad6199cf1820558ef224c6d2f76f3343d3a7)
+![ALX AFRICA AirBnB Clone](https://github.com/melissacinta/AirBnB_clone/assets/18717315/736a7848-c244-493d-9125-017a23762337)
+
 
 ## Project Description
 
@@ -17,7 +18,7 @@ After 4 months, we will have a complete web application composed by:
 
 ### Final Product
 By the end of the 4 months, the final product should look like this
-![hbnb final look](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/fe2e3e7701dec72ce612472dab9bb55fe0e9f6d4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231206T033507Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=c9e4c1cd32f7682ee0b3a90d85d3f978a97e1b39ecda68425a27f36a27d80896)
+![nb final look](https://github.com/melissacinta/AirBnB_clone/assets/18717315/0a4468a9-9109-4aed-a280-b2d9cb2f823f)
 
 ## General concepts in review
 
