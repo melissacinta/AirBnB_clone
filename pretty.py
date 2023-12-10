@@ -4,4 +4,5 @@
 
 
 class Test:
+    """A beautiful code that passes"""
     pass
