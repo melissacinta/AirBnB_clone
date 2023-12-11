@@ -18,7 +18,6 @@ from models.review import Review
 
 
 class TestConsole(unittest.TestCase):
-   
     def setUp(self):
         """Redirecting stdin and stdout"""
         self.mock_stdin = create_autospec(sys.stdin)
@@ -51,7 +50,6 @@ class TestConsole(unittest.TestCase):
                            self.mock_stdout.write.call_args_list[-nr:]))
 
     def test_quit(self):
-        
         cli = self.create()
         self.assertTrue(cli.onecmd("quit"))
 

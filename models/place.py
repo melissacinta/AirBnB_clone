@@ -6,8 +6,6 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    
-
     name = ""
     user_id = ""
     city_id = ""
