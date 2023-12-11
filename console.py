@@ -1,10 +1,16 @@
 #!/usr/bin/python3
+"""This module defines the entry point of the command interpreter.
 
+It defines one class, `HBNBCommand()`, which sub-classes the `cmd.Cmd` class.
+This module defines abstractions that allows us to manipulate a powerful
+storage system (FileStorage / DB). This abstraction will also allow us to
+change the type of storage easily without updating all of our codebase.
+"""
 import cmd
 import json
 import re
 import models
-# from models import storage
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -73,11 +79,9 @@ class HBNBCommand(cmd.Cmd):
             return 1
         return 0
 
-    def handle_empty_line(self, line):
-        """
-        Eliminates empty lines
-        """
-        return False
+    def emptyline(self):
+        """Do nothing upon receiving an empty line."""
+        pass
 
     def do_quit(self, line):
         """Handles the 'quit' command
@@ -95,8 +99,8 @@ class HBNBCommand(cmd.Cmd):
          Args:
             line(args): input argument for quiting
             the terminal
-
         """
+        print("")
         return True
 
     def do_create(self, line):
@@ -123,6 +127,9 @@ class HBNBCommand(cmd.Cmd):
         print(obj.id)
 
     def do_show(self, line):
+        """Usage: show <class> <id> or <class>.show(<id>)
+        Display the string representation of a class instance of a given id.
+        """
         if (self.my_errors(line, 2) == 1):
             return
         args = line.split()
@@ -216,6 +223,7 @@ class HBNBCommand(cmd.Cmd):
         print(count_instance)
 
     def default(self, line):
+
         names = ["BaseModel", "User", "State", "City", "Amenity",
                  "Place", "Review"]
 
@@ -231,7 +239,7 @@ class HBNBCommand(cmd.Cmd):
         if not args or len(args) < 2 or args[0] not in names \
                 or args[1] not in commands.keys():
             super().default(line)
-        return
+            return
 
         if args[1] in ["all", "count"]:
             commands[args[1]](args[0])
@@ -251,5 +259,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    cli = HBNBCommand()
-    cli.cmdloop()
+    HBNBCommand().cmdloop()
