@@ -14,7 +14,12 @@ class BaseModel:
     attributes/methods for other classes
     """
     def __init__(self, *args, **kwargs):
-        """initialize instance attributes"""
+        """Initialize a new BaseModel.
+
+        Args:
+            *args (any): Unused.
+            **kwargs (dict): Key/value pairs of attributes.
+        """
         if len(kwargs) > 0:
             for key in kwargs:
                 # we don't want to add the __class__ key

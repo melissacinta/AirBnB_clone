@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""Defines unittests for console.py.
+"""
 
 import os
 import sys
@@ -15,6 +16,18 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+
+
+class TestHBNBCommand_prompting(unittest.TestCase):
+    """Unittests for testing prompting of the HBNB command interpreter."""
+
+    def test_prompt_string(self):
+        self.assertEqual("(hbnb) ", HBNBCommand.prompt)
+
+    def test_empty_line(self):
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd(""))
+            self.assertEqual("", output.getvalue().strip())
 
 
 class TestConsole(unittest.TestCase):
