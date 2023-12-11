@@ -18,7 +18,8 @@ from models.place import Place
 
 class FileStorage:
     """
-    Custom class for file storage
+    serializes instances to a JSON file and
+    deserializes JSON file to instances
     """
 
     __file_path = "file.json"
@@ -26,7 +27,7 @@ class FileStorage:
 
     def all(self):
         """Returns the dictionary object"""
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, object):
         """sets in __objects the object with the key
@@ -35,15 +36,15 @@ class FileStorage:
         Args:
             object(obj): object to write
         """
-        self.__objects[object.__class__.__name__ + '.' + str(object)] = object
+        FileStorage.__objects[object.__class__.__name__ + '.' + str(object)] = object
 
     def save(self):
         """
         serializes __objects to the JSON file
         (path: __file_path)
         """
-        with open(self.__file_path, 'w+') as f:
-            json.dump({k: v.to_dict() for k, v in self.__objects.items()
+        with open(FileStorage.__file_path, 'w') as f:
+            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()
                        }, f)
 
     def reload(self):
