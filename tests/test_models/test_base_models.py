@@ -22,7 +22,8 @@ class TestBaseModel(unittest.TestCase):
         """
         my_model = BaseModel()
         my_model2_uuid = str(uuid.uuid4())
-        my_model2 = BaseModel(id=my_model2_uuid, name="The weeknd", album="Trilogy")
+        my_model2 = BaseModel(id=my_model2_uuid,
+                              name="The weeknd", album="Trilogy")
         my_model.name = "ALX"
         my_model.number = 89
         self.assertEqual([my_model.name, my_model.number],
@@ -48,6 +49,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('created_at', b1_dict.keys())
         self.assertIn('updated_at', b1_dict.keys())
         self.assertEqual(b1_dict['__class__'], type(b1).__name__)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -123,7 +123,6 @@ class HBNBCommand(cmd.Cmd):
         print(obj.id)
 
     def do_show(self, line):
-        
         if (self.my_errors(line, 2) == 1):
             return
         args = line.split()
@@ -154,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """Shows all instances, or instances of a certain class
 
-        Args: 
+        Args:
             line(args): enter with command (optional): <class name>
             Example: 'all' OR 'all User'
 
@@ -217,7 +216,6 @@ class HBNBCommand(cmd.Cmd):
         print(count_instance)
 
     def default(self, line):
-        
         names = ["BaseModel", "User", "State", "City", "Amenity",
                  "Place", "Review"]
 
