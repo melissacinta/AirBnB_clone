@@ -6,6 +6,7 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
+    """Initialize instance attributes"""
     name = ""
     user_id = ""
     city_id = ""

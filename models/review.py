@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 
 
 class Review(BaseModel):
+    """Initialize instance attributes"""
     text = ""
     user_id = ""
     place_id = ""
