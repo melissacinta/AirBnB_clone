@@ -6,5 +6,9 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """Initialize instance attribute"""
+    """Initialize public class attribute"""
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        '''Initializes attributes for the state class'''
+        super().__init__(*args, **kwargs)

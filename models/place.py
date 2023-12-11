@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Initialize instance attributes"""
+    """Initialize public class attributes"""
     name = ""
     user_id = ""
     city_id = ""
@@ -18,3 +18,7 @@ class Place(BaseModel):
     latitude = 0.0
     max_guest = 0
     amenity_ids = []
+
+    def __init__(self, *args, **kwargs):
+        '''Initializes attributes for the place class'''
+        super().__init__(*args, **kwargs)
