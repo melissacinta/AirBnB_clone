@@ -9,26 +9,28 @@ import models
 
 
 class BaseModel:
-    """A class that defines all common attributes/methods for other classes"""
+    """
+    A class that defines all common
+    attributes/methods for other classes
+    """
     def __init__(self, *args, **kwargs):
         """initialize instance attributes"""
-        if not kwargs:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
-            models.storage.new(self)
-        else:
+        if len(kwargs) > 0:
             for key in kwargs:
                 # we don't want to add the __class__ key
                 if key == "__class__":
                     continue
-                else:
-                    # We are formating time here
-                    if key in ('created_at', 'updated_at'):
-                        kwargs[key] = datetime.datetime.strptime(
-                                kwargs[key], "%Y-%m-%dT%H:%M:%S.%f")
-                        # setting the rest of the attributes
-                    setattr(self, key, kwargs[key])
+                # We are formating time here
+                if key in ('created_at', 'updated_at'):
+                    kwargs[key] = datetime.datetime.fromisoformat(kwargs[key])
+                    # setting the rest of the attributes
+                setattr(self, key, kwargs[key])
+            return
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.now()
+
+        models.storage.new(self)
 
     def __str__(self):
         """Function that return the string representation of the module"""
