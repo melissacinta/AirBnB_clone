@@ -29,14 +29,15 @@ class FileStorage:
         """Returns the dictionary object"""
         return FileStorage.__objects
 
-    def new(self, object):
+    def new(self, obj):
         """sets in __objects the object with the key
         <object class name>.id
 
         Args:
             object(obj): object to write
         """
-        FileStorage.__objects[object.__class__.__name__ + '.' + str(object)] = object
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """
